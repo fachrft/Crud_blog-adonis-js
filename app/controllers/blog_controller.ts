@@ -30,7 +30,7 @@ export default class BlogController {
     const blog = await Blog.create({
       title: data.title,
       desc: data.desc,
-      image: `${app.makePath('public/uploads')}\\${namaFile}`,
+      image: `uploads/${namaFile}`,
     })
     return response.status(200).json({
       messages: 'blog post',
@@ -48,12 +48,14 @@ export default class BlogController {
       await image.move(app.makePath('public/uploads'), {
         name: namaFile,
       })
-      blog.image = `${app.makePath('public/uploads')}\\${namaFile}`
-    } else {
-      blog.image = blog.image
-      blog.title = title || blog.title
-      blog.desc = desc || blog.desc
-    }
+      blog.image = `uploads/${namaFile}`
+    } 
+
+    blog.merge({
+        title: title || blog.title,
+        desc: desc || blog.desc,
+    })
+
     await blog.save()
     return response.status(200).json({
       message: 'updated successfully',

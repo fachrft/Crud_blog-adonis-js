@@ -55,11 +55,13 @@
     "@adonisjs/core": "^6.12.1",
     "@adonisjs/cors": "^2.2.1",
     "@adonisjs/lucid": "^21.2.0",
+    "@adonisjs/static": "^1.1.1",
     "@vinejs/vine": "^2.1.0",
     "edge.js": "^6.2.0",
     "luxon": "^3.5.0",
     "mysql2": "^3.11.3",
-    "reflect-metadata": "^0.2.2"
+    "reflect-metadata": "^0.2.2",
+    "static": "^2.0.0"
   },
   "hotHook": {
     "boundaries": [
